@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Angry Birds - A physics-based slingshot game. Launch birds to destroy structures and defeat the pigs!" />
+  <title>Angry Birds 🐦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+      <div class="title-container">
+        <h1 class="game-title">ANGRY<br><span>BIRDS</span></h1>
+        <div class="title-bird">🐦</div>
+      </div>
+      <button id="play-btn" class="btn btn-play">
+        <span>▶</span> PLAY
+      </button>
+      <p class="subtitle">Drag the bird • Aim • Release!</p>
+    </div>
+
+    <!-- Game Canvas -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Game HUD -->
+    <div id="game-hud" class="hidden">
+      <div class="hud-left">
+        <div class="hud-item" id="score-display">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-value" id="score-value">0</span>
+        </div>
+      </div>
+      <div class="hud-center">
+        <span class="hud-level" id="level-display">Level 1</span>
+      </div>
+      <div class="hud-right">
+        <div class="hud-item" id="birds-display">
+          <span class="hud-label">BIRDS</span>
+          <span class="hud-value" id="birds-value">3</span>
+        </div>
+        <button id="restart-btn" class="btn btn-small" title="Restart">↻</button>
+        <button id="menu-btn" class="btn btn-small" title="Menu">☰</button>
+      </div>
+    </div>
+
+    <!-- Level Complete Screen -->
+    <div id="level-complete" class="screen overlay hidden">
+      <div class="modal">
+        <h2>LEVEL COMPLETE!</h2>
+        <div class="stars-container" id="stars-container">
+          <span class="star">⭐</span>
+          <span class="star">⭐</span>
+          <span class="star">⭐</span>
+        </div>
+        <div class="final-score">
+          <span>Score: </span><span id="final-score-value">0</span>
+        </div>
+        <div class="modal-buttons">
+          <button id="next-level-btn" class="btn btn-play">NEXT ▶</button>
+          <button id="replay-btn" class="btn btn-secondary">REPLAY ↻</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over" class="screen overlay hidden">
+      <div class="modal">
+        <h2>LEVEL FAILED</h2>
+        <p class="fail-text">The pigs survived! Try again.</p>
+        <div class="modal-buttons">
+          <button id="retry-btn" class="btn btn-play">RETRY ↻</button>
+          <button id="back-menu-btn" class="btn btn-secondary">MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level Select Screen -->
+    <div id="level-select" class="screen hidden">
+      <h2 class="level-select-title">SELECT LEVEL</h2>
+      <div class="level-grid" id="level-grid"></div>
+      <button id="back-btn" class="btn btn-secondary">← BACK</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
